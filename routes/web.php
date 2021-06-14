@@ -28,8 +28,10 @@ Route::post('/dictionary',function (\Illuminate\Http\Request $request){
             $output = $value;
             return view('done',compact(['output','string']));
         }else{
-            return view('done','khong co du lieu');
+            return view('form_error')->with('string',"$string");
         }
     }
-
+});
+Route::get('/form_error',function (){
+   return view('dictionary');
 });
